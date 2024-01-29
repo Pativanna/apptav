@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons [routerLink]="['/home']" (click)="logout()" slot="secondary">
+      <ion-icon color="warning" slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title class="header-title" color="warning">
+      <ng-container *ngIf="role$ | async as role">{{ role }}</ng-container>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-card>
+      <img src="assets/img/bien.png" />
+      <ion-card-header>
+        <ion-card-title class="card-title" color="dark">
+          Bienvenido {{ correoPrefix }}
+          <br>
+          
+        </ion-card-title>
+      </ion-card-header>
+      <div *ngIf="(role$ | async) === 'alumno'">
+        <app-alumno-component></app-alumno-component>
+      </div>
+      <div *ngIf="(role$ | async) === 'profesor'">
+        <app-profesor-component></app-profesor-component>
+      </div>
+      <div *ngIf="(role$ | async) === 'administrador'">
+        <app-administrador-component></app-administrador-component>
+      </div>
+      <ion-progress-bar type="indeterminate" color="warning"></ion-progress-bar>
+    </ion-card>
+  </ion-content>

@@ -1,0 +1,13 @@
+<ion-card-content>
+  <form [formGroup]="codigoClaseForm">
+    <ion-item lines="full">
+      <ion-label position="floating">Codigo:</ion-label>
+      <ion-input [clearOnEdit]="true" labelPlacement="stacked" type="text" required formControlName="codigoClase"></ion-input>
+    </ion-item>
+  </form>
+  <ion-button (click)="generateQRCode()">Generar QR</ion-button>
+  <div *ngIf="qrCodeImage">
+    <img [src]="qrCodeImage" alt="Código QR generado">
+  </div>
+  <p>Info: {{ emailInfoMostar }}</p>
+</ion-card-content>

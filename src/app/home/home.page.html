@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark" >
+    <ion-buttons slot="secondary">
+    </ion-buttons>
+    <ion-title color="warning">RegisterAPP</ion-title>
+    <ion-progress-bar type="indeterminate" color="warning"></ion-progress-bar>
+  </ion-toolbar>
+
+</ion-header>
+
+<br />
+<ion-content color="dark" [fullscreen]="true">
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Bienvenido a RegisterApp</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="formLogin">
+        <ion-item lines="full">
+          <ion-label position="floating">Correo:</ion-label>
+          <ion-input [clearOnEdit]="true" labelPlacement="stacked" type="text" required formControlName="correo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña:</ion-label>
+          <ion-input [clearOnEdit]="true" labelPlacement="stacked" type="password" required formControlName="password"></ion-input>
+        </ion-item>
+      </form>
+      <br>
+      <ion-button id="open-loading" shape="round" color="warning" (click)='login()'>Ingresar</ion-button>
+      <ion-loading trigger="open-loading" message="Cargando" duration="1000"></ion-loading>
+      <ion-button color="warning" shape="round" [routerLink]="['/restablecer']">Restablecer</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

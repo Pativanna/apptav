@@ -1,0 +1,22 @@
+<ion-card-content>
+  <form [formGroup]="nuevoUsuarioForm">
+    <ion-item lines="full">
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input [clearOnEdit]="true" labelPlacement="stacked" type="text" required formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña:</ion-label>
+      <ion-input [clearOnEdit]="true" labelPlacement="stacked" type="password" required formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Rol</ion-label>
+      <ion-select formControlName="role">
+        <ion-select-option value="alumno">Alumno</ion-select-option>
+        <ion-select-option value="profesor">Profesor</ion-select-option>
+        <ion-select-option value="administrador">Administrador</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
+  
+  <ion-button expand="full" (click)="crearUsuario()">Crear Usuario</ion-button>
+</ion-card-content>
